@@ -32,8 +32,8 @@ import { type } from 'os';
 
   //! END @TODO1
   app.get("/filteredimage",
-    async (req, res) => {
-      const url = req.query.image_url
+    async (req: express.Request, res: express.Response) => {
+      const url: string = req.query.image_url
       if (url) {
         try {
           let image = await filterImageFromURL(url)
@@ -49,7 +49,7 @@ import { type } from 'os';
 
   // Root Endpoint
   // Displays a simple message to the user
-  app.get("/", async (req, res) => {
+  app.get("/", async (req : express.Request, res: express.Response) => {
     res.send("try GET /filteredimage?image_url={{}}")
   });
 
